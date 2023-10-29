@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:news_app/layout/news_layout.dart';
+import 'package:news_app/network/dio_helper.dart';
 
 void main() {
+  DioHelper.init();
   runApp(const NewsApp());
 }
 
@@ -12,7 +14,14 @@ class NewsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      themeMode: ThemeMode.light,
+      darkTheme: ThemeData(
+        scaffoldBackgroundColor: Colors.black,
+      ),
       theme: ThemeData(
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(
+              backgroundColor: Colors.green),
+          //primarySwatch: Colors.green,
           bottomNavigationBarTheme: const BottomNavigationBarThemeData(
             selectedItemColor: Colors.green,
             elevation: 20,
