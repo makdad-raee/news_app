@@ -5,10 +5,12 @@ class SportsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('SportsScreen',
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-        ));
+    return const Center(
+      child: Text('Sports Screen',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          )),
+    );
   }
 }

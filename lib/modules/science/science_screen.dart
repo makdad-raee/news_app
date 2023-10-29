@@ -5,10 +5,12 @@ class ScienceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('ScienceScreen',
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-        ));
+    return const Center(
+      child: Text('Science Screen',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          )),
+    );
   }
 }

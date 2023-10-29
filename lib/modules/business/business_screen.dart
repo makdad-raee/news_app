@@ -5,11 +5,13 @@ class BusinessScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      'BusinessScreen',
-      style: TextStyle(
-        fontSize: 24,
-        fontWeight: FontWeight.bold,
+    return const Center(
+      child: Text(
+        'Business Screen',
+        style: TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
