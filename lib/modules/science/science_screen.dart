@@ -1,16 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_app/componants/componants.dart';
+import 'package:news_app/cubit/news_cubit.dart';
+import 'package:news_app/cubit/news_state.dart';
 
 class ScienceScreen extends StatelessWidget {
   const ScienceScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Science Screen',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          )),
+    return BlocConsumer<NewsCubit, NewsState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        var list = NewsCubit.get(context).science;
+        return list.isNotEmpty
+            ? ListView.separated(
+                physics: const BouncingScrollPhysics(),
+                itemCount: 12,
+                separatorBuilder: (context, index) => Container(
+                      color: Colors.grey,
+                      height: 1,
+                    ),
+                itemBuilder: (context, index) => buildArticleItem(list[index]))
+            : const Center(
+                child: CircularProgressIndicator(),
+              );
+      },
     );
   }
 }
