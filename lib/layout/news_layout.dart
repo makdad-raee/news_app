@@ -16,12 +16,19 @@ class Newslayout extends StatelessWidget {
           var cubit = NewsCubit.get(context);
           return Scaffold(
             appBar: AppBar(
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               title: const Text('News App'),
               actions: [
                 IconButton(
                   icon: const Icon(Icons.search_sharp),
                   onPressed: () {},
-                )
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.brightness_4_outlined,
+                  ),
+                ),
               ],
             ),
             bottomNavigationBar: BottomNavigationBar(

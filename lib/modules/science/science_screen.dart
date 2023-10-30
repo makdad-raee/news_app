@@ -14,7 +14,7 @@ class ScienceScreen extends StatelessWidget {
       builder: (context, state) {
         var list = NewsCubit.get(context).science;
         return list.isNotEmpty
-            ? articleBuilder(list)
+            ? articleBuilder(list, context)
             : const Center(
                 child: CircularProgressIndicator(),
               );

@@ -14,7 +14,7 @@ class BusinessScreen extends StatelessWidget {
       builder: (context, state) {
         var list = NewsCubit.get(context).business;
         return list.isNotEmpty
-            ? articleBuilder(list)
+            ? articleBuilder(list, context)
             : const Center(
                 child: CircularProgressIndicator(),
               );

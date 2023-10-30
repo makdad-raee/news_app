@@ -14,7 +14,7 @@ class SportsScreen extends StatelessWidget {
       builder: (context, state) {
         var list = NewsCubit.get(context).sports;
         return list.isNotEmpty
-            ? articleBuilder(list)
+            ? articleBuilder(list, context)
             : const Center(
                 child: CircularProgressIndicator(),
               );
