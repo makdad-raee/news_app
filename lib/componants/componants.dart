@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/cubit/app_cubit.dart';
 
 Widget buildArticleItem(dynamic article, context) => Padding(
       padding: const EdgeInsets.all(20.0),
@@ -32,7 +33,11 @@ Widget buildArticleItem(dynamic article, context) => Padding(
                     '${article['title']}',
                     maxLines: 4,
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: TextStyle(
+                        color: AppCubit.get(context).isDark
+                            ? Colors.white
+                            : Colors.black,
+                        fontSize: 18),
                   ),
                   const SizedBox(
                     height: 20,

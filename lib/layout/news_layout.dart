@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_app/cubit/app_cubit.dart';
 import 'package:news_app/cubit/news_cubit.dart';
 import 'package:news_app/cubit/news_state.dart';
 
@@ -24,7 +25,9 @@ class Newslayout extends StatelessWidget {
                   onPressed: () {},
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    AppCubit.get(context).changeAppMode();
+                  },
                   icon: const Icon(
                     Icons.brightness_4_outlined,
                   ),

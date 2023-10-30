@@ -22,15 +22,10 @@ class NewsApp extends StatelessWidget {
       child: BlocConsumer<AppCubit, AppState>(
         listener: (context, state) {},
         builder: (context, state) => MaterialApp(
-          themeMode: ThemeMode.dark,
+          themeMode:
+              AppCubit.get(context).isDark ? ThemeMode.dark : ThemeMode.light,
           darkTheme: ThemeData(
-              textTheme: const TextTheme(
-                bodyLarge: TextStyle(
-                  //fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
-              ),
+              textTheme: const TextTheme(),
               primarySwatch: Colors.green,
               bottomNavigationBarTheme: BottomNavigationBarThemeData(
                 selectedItemColor: Colors.green,
@@ -41,6 +36,8 @@ class NewsApp extends StatelessWidget {
               ),
               scaffoldBackgroundColor: HexColor('333739'),
               appBarTheme: AppBarTheme(
+                  titleSpacing: 20.0,
+
                   //backgroundColor: Colors.black,
                   iconTheme: const IconThemeData(color: Colors.white),
                   systemOverlayStyle: SystemUiOverlayStyle(
@@ -55,13 +52,6 @@ class NewsApp extends StatelessWidget {
                     color: Colors.white,
                   ))),
           theme: ThemeData(
-              textTheme: const TextTheme(
-                bodyMedium: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black,
-                ),
-              ),
               floatingActionButtonTheme: const FloatingActionButtonThemeData(
                   backgroundColor: Colors.green),
               primarySwatch: Colors.green,
@@ -72,6 +62,7 @@ class NewsApp extends StatelessWidget {
                   backgroundColor: Colors.white),
               scaffoldBackgroundColor: Colors.white,
               appBarTheme: const AppBarTheme(
+                  titleSpacing: 20.0,
                   iconTheme: IconThemeData(color: Colors.black),
                   systemOverlayStyle: SystemUiOverlayStyle(
                     statusBarColor: Colors.white,
