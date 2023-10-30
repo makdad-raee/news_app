@@ -4,21 +4,28 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/cubit/app_cubit.dart';
 import 'package:news_app/cubit/app_states.dart';
 import 'package:news_app/layout/news_layout.dart';
+import 'package:news_app/network/cash_helper.dart';
 import 'package:news_app/network/dio_helper.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   DioHelper.init();
-  runApp(const NewsApp());
+  await CashHelper.init();
+  bool? isDark = CashHelper.getData(key: 'isDark');
+  runApp(NewsApp(
+    isDark: isDark,
+  ));
 }
 
 class NewsApp extends StatelessWidget {
-  const NewsApp({super.key});
+  const NewsApp({super.key, required this.isDark});
+  final bool? isDark;
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AppCubit(),
+    return BlocProvider<AppCubit>(
+      create: (context) => AppCubit()..changeAppMode(fromShared: isDark),
       child: BlocConsumer<AppCubit, AppState>(
         listener: (context, state) {},
         builder: (context, state) => MaterialApp(
