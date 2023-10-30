@@ -49,3 +49,11 @@ Widget buildArticleItem(dynamic article) => Padding(
         ],
       ),
     );
+Widget articleBuilder(list) => ListView.separated(
+    physics: const BouncingScrollPhysics(),
+    itemCount: 12,
+    separatorBuilder: (context, index) => Container(
+          color: Colors.grey,
+          height: 1,
+        ),
+    itemBuilder: (context, index) => buildArticleItem(list[index]));
