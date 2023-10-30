@@ -21,7 +21,7 @@ class NewsApp extends StatelessWidget {
       theme: ThemeData(
           floatingActionButtonTheme: const FloatingActionButtonThemeData(
               backgroundColor: Colors.green),
-          //primarySwatch: Colors.green,
+          primarySwatch: Colors.green,
           bottomNavigationBarTheme: const BottomNavigationBarThemeData(
             selectedItemColor: Colors.green,
             elevation: 20,

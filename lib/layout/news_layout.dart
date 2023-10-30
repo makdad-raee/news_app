@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/cubit/news_cubit.dart';
 import 'package:news_app/cubit/news_state.dart';
-import 'package:news_app/network/dio_helper.dart';
 
 class Newslayout extends StatelessWidget {
   const Newslayout({super.key});

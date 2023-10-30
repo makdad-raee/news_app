@@ -12,6 +12,7 @@ class BusinessScreen extends StatelessWidget {
     return BlocConsumer<NewsCubit, NewsState>(
       listener: (context, state) {},
       builder: (context, state) {
+        var list = NewsCubit.get(context).business;
         return state is! NewsGetBusinessLoadingState
             ? ListView.separated(
                 physics: const BouncingScrollPhysics(),
@@ -20,7 +21,7 @@ class BusinessScreen extends StatelessWidget {
                       color: Colors.grey,
                       height: 1,
                     ),
-                itemBuilder: (context, index) => buildArticleItem())
+                itemBuilder: (context, index) => buildArticleItem(list[index]))
             : const Center(
                 child: CircularProgressIndicator(),
               );

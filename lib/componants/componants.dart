@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget buildArticleItem() => Padding(
+Widget buildArticleItem(dynamic article) => Padding(
       padding: const EdgeInsets.all(20.0),
       child: Row(
         children: [
@@ -9,9 +9,9 @@ Widget buildArticleItem() => Padding(
             height: 120,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              image: const DecorationImage(
+              image: DecorationImage(
                 image: NetworkImage(
-                  'https://image.cnbcfm.com/api/v1/image/104413058-GettyImages-470532710.jpg?v=1698421353&w=1920&h=1080',
+                  '${article['urlToImage']}',
                 ),
                 fit: BoxFit.cover,
               ),
@@ -20,7 +20,7 @@ Widget buildArticleItem() => Padding(
           const SizedBox(
             width: 20,
           ),
-          const Expanded(
+          Expanded(
             child: SizedBox(
               height: 120,
               child: Column(
@@ -29,17 +29,18 @@ Widget buildArticleItem() => Padding(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    'Title',
+                    '${article['title']}',
                     maxLines: 4,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
-                    '2023-10-28T12:00:01Z',
-                    style: TextStyle(color: Colors.grey),
+                    '${article['publishedAt']}',
+                    style: const TextStyle(color: Colors.grey),
                   ),
                 ],
               ),
