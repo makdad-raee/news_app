@@ -13,7 +13,8 @@ void main() async {
   DioHelper.init();
   await CashHelper.init();
   bool? isDark = CashHelper.getData(key: 'isDark');
-  runApp(NewsApp(
+  runApp(
+    NewsApp(
     isDark: isDark,
   ));
 }
@@ -43,6 +44,7 @@ class NewsApp extends StatelessWidget {
               ),
               scaffoldBackgroundColor: HexColor('333739'),
               appBarTheme: AppBarTheme(
+               // backgroundColor: Colors.black,
                   titleSpacing: 20.0,
 
                   //backgroundColor: Colors.black,
